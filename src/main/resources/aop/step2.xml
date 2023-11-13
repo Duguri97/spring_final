@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="exeTimeAspect" class="aop.step2.ExeTimeAspect"></bean>
+    <bean class="aop.step2.ForCalculator"></bean>
+    <bean class="aop.step2.RecCalculator"></bean>
+
+    <aop:config proxy-target-class="true">
+        <aop:pointcut id="allFactorial" expression="execution(public * aop.step2.*..*(..) )"/> <!-- expression : 어떤 메소드가 대상인지를 표현식으로 쓰는건데 못외운다. -->
+        <aop:aspect ref="exeTimeAspect">    <!-- 부가기능 -->
+            <aop:around method="measure" pointcut-ref="allFactorial"></aop:around> <!-- 언제 실행될지... around = 전후 -->
+        </aop:aspect>
+
+    </aop:config>
+
+
+
+
+
+</beans>

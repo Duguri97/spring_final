@@ -1,0 +1,24 @@
+빌드 툴 : Maven, gradle
+
+1. 메이븐 :
+- 빌드해주는 도구 + 라이브러리 관리 ==> pom.xml을 통해
+- pom.xml에 depencency만 추가하면 알아서 lib(+관련 lib까지)를 다운받습니다.
+
+2. web.xml
+- web.xml 참고
+
+3.
+context-*.xml
+dispatcher-servlet.xml
+
+web.xml에서 contextLoaderListener 설정파일로 context-*.xml을 지정
+web.xml에서 DispatcherServlet 설정파일로 dispatcher-servlet.xml을 지정
+
+중요한 거 :
+- 에외는 있지만, dispatcher-servlet.xml에는 Controller관련 빈들(요청을 누가 처리해야할지에 대한 내용)만 등록
+- 그 외의 빈들은 context-*.xml에 등록
+- 웹에 대한 요청을 처리하는게 수업의 전부이지만, 프로젝트안에는 요청처리외에 여러기능들(배치 + session관리 등등)이 포함됩니다.
+
+
+
+

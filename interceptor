@@ -1,0 +1,4 @@
+필터와 interceptor
+
+Interceptor는 DispatcherServlet 내부에 있는 객체.
+==> dispatcher-servlet.xml에서 interceptor 빈 등록

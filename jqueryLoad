@@ -1,0 +1,5 @@
+jqueryLoad
+
+$("선택자").load("url" , function(){});
+
+보통은 '선택자'태그에 html을 꾸미고 싶을 때...

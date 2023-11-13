@@ -1,0 +1,9 @@
+@ResponseBody
+
+@RequestMapping()
+{
+return "값" 은 jsp를 찾는데 쓰이죠...
+}
+
+그런데 @ResponseBody를 붙이면
+return 값이 그대로 브라우저(or 요청한 놈)에게 전달됩니다.

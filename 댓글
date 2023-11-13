@@ -1,0 +1,26 @@
+댓글은 페이지 생성 할 때 모든 댓글 가져오지 않음.
+유튜브는 스크롤 내릴 때 비동기로 댓글을 생성.
+
+DB에 댓글을 저장.
+서버에서 해당 글의 댓글들을 가지고 와서 비동기로 댓글정보를 전달.
+
+$.ajax({
+    url:"/reply/replyList.wow"
+    , // 기타설정
+    , success : function(data) {
+        // data List<ReplyVO>정보를 가지고 있겠지...
+        // ==> createElement()로 댓글바로바로생성
+    }
+})
+
+@ResponseBody
+@RequestMapping("/reply/replyList.wow")
+public List<ReplyVO> method() {
+    // 댓글 얻는 코드
+    return replylist;
+}
+
+JS에서는 ReplyVO 쓸 줄 모름.
+그래서 서버에서 return 할 때 json으로 변환해서 전달해야함.
+==> Spring이 알아서 json으로 변환해줌(관련lib만 추가하면...)
+lib : jackson-databind와 몇개 더...

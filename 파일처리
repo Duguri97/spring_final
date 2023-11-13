@@ -1,0 +1,54 @@
+파일처리
+
+파일업로드랑 CRUD는 관계가 없죠...
+
+파일업로드 : 내 컴퓨터(서버컴퓨터) 어딘가에 실제로 파일을 생성하는거
+         -outputStream, inputStream 활용해서...
+         -프로젝트에 파일이 생기는게 아닙니다...
+          img를 업로드했는데, 미리보기 하고싶어서 하다보니
+          프로젝트에 생성하는 경우가 가끔 있었습니다.
+          미리보기는 javascript를 이용해서...
+          -CRUD랑은 일단 관계없음...
+
+업로드 된 파일을 화면에 보여주거나 할 때
+해당 파일이 몇번째 글에서 업로드된 파일인지 등에 대한 정보를 알고있어야 되겠죠...
+(freeView.wow?boNo=1910 에서 업로드된 파일이면 1910일 때만 업로드 된 파일을 보여줘야겠죠.)
+
+그래서 업로드 순간 업로드 될 파일에 대한 정보를 DB에 같이 저장하는겁니다.
+-> 나중에 DB에 있는 정보로 특정 업로드 된 파일에 접근합니다.
+
+멀티파일 블로그 설명 참고...
+req의 content-type : multipart
+==> req의 바디부분이 여러개다!!!
+
+이렇게 multipart가 된 req를 처리해주는 기술(interface, calss, lib) 있습니다.
+multiPartResolver
+
+파일업로드 적용해보기
+0. pom.xml에서 multipartResolver 디펜던시 추가 (lib 추가)
+1. web.xml의 dispatcherServlet에 multipartResolver 설정
+2. dispatcher-servlet.xml에 multipartResolber 빈(객체) 등록
+3. (freeForm.wow) FORM태그에서 post, enctype='multipart/form-data', input type='file'
+4. Controller에서는 자바로 파일업로드하는 코드 작성
+
+- 보기
+freeView에서는 freeBoard select 먼저,
+List<AttachVO> select 나중 ==> freeBoard.setAttaches(attaches)
+조인으로도 가능하고 여러방법이 있지만
+우리는 따로따로 select 쿼리 사용한 것.
+
+지금은 사실 1:N이 단순한 형태로 되어있는데...
+복잡한 테이블 관계에서는 나중에 헷갈립니다.
+
+=> 이런 복잡한 관계를 잘 해결하고 select 잘 할 수 있도록 해주는
+mybatis의 기능이 바로 resultMap
+
+
+
+
+
+
+
+
+
+

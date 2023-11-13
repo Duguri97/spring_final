@@ -1,0 +1,14 @@
+Excel을 지원해주는 lib가 2개
+- xlsx와 xls을 지원해주는 lib 중 최근거인 xlsx만 합시다.
+- 관련 lib 다운
+
+poi 메소드 살짝 살펴보기
+XsssFWorkBook : 하나의 excel 파일
+Sheet   :   sheet
+Row     :   row
+Cell    :   cell
+
+excel 다운로드 버튼
+우리는 excel 다운 버튼 누르면
+@RM에서 DB에서 가지고 온 데이터로 엑셀 만든 후
+resp에 엑셀 보내기
